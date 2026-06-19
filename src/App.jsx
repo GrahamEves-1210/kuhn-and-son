@@ -12,14 +12,14 @@ const SERVICES = [
   'General Maintenance',
 ]
 
-function makeTicks(total, spacing, h) {
+function makeTicks(total, spacing, h, skipLastLabel = false) {
   const ticks = []
   for (let i = 0; i <= total; i++) {
     const x = i * spacing
     const big = i % 5 === 0
     const th  = big ? 24 : (i % 5 === 2 || i % 5 === 3) ? 14 : 8
     ticks.push(<line key={`t${i}`} x1={x} y1={h} x2={x} y2={h - th} stroke="#222" strokeWidth={big ? 2 : 1} />)
-    if (big && i > 0) {
+    if (big && i > 0 && !(skipLastLabel && i === total)) {
       const label = i / 5
       const xOffset = label >= 10 ? 6 : 3
       ticks.push(
@@ -44,7 +44,7 @@ function TapeMeasure() {
       </svg>
       <svg className="tape-mobile" width="100%" height={h} viewBox={`0 0 ${mW} ${h}`} preserveAspectRatio="xMinYMid slice">
         <rect width={mW} height={2} fill="#222" />
-        {makeTicks(mTotal, mSpacing, h)}
+        {makeTicks(mTotal, mSpacing, h, true)}
       </svg>
     </div>
   )
