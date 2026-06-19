@@ -42,7 +42,7 @@ function TapeMeasure() {
         <rect width={dW} height={2} fill="#222" />
         {makeTicks(dTotal, dSpacing, h)}
       </svg>
-      <svg className="tape-mobile" width="100%" height={h} viewBox={`0 0 ${mW} ${h}`} preserveAspectRatio="xMinYMid meet">
+      <svg className="tape-mobile" width="100%" height={h} viewBox={`0 0 ${mW} ${h}`} preserveAspectRatio="xMinYMid slice">
         <rect width={mW} height={2} fill="#222" />
         {makeTicks(mTotal, mSpacing, h)}
       </svg>
@@ -162,8 +162,8 @@ export default function App() {
       </div>
 
       <div className="footer">
-        <p>&copy; {new Date().getFullYear()} Kuhn &amp; Son Home Improvements, LLC &nbsp;&middot;&nbsp; Licensed &amp; Fully Insured</p>
-        <p>Serving the South Metro Atlanta Crescent &nbsp;&middot;&nbsp; Peachtree City, GA</p>
+        <p>&copy; {new Date().getFullYear()} Kuhn &amp; Son Home Improvements, LLC <span className="footer-dot">&nbsp;&middot;&nbsp;</span>Licensed &amp; Fully Insured</p>
+        <p>Serving the South Metro Atlanta Crescent <span className="footer-dot">&nbsp;&middot;&nbsp;</span>Peachtree City, GA</p>
       </div>
     </div>
   )
