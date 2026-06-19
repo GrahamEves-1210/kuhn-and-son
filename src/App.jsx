@@ -12,24 +12,39 @@ const SERVICES = [
   'General Maintenance',
 ]
 
-function TapeMeasure() {
+function makeTicks(total, spacing, h) {
   const ticks = []
-  const total = 80, spacing = 20, w = total * spacing, h = 40
   for (let i = 0; i <= total; i++) {
     const x = i * spacing
     const big = i % 5 === 0
     const th  = big ? 24 : (i % 5 === 2 || i % 5 === 3) ? 14 : 8
     ticks.push(<line key={`t${i}`} x1={x} y1={h} x2={x} y2={h - th} stroke="#222" strokeWidth={big ? 2 : 1} />)
-    if (big && i > 0) ticks.push(
-      <text key={`n${i}`} x={x - 6} y={h - 27} fontSize="10"
-        fontFamily="'Courier New', monospace" fontWeight="bold" fill="#333">{i / 5}</text>
-    )
+    if (big && i > 0) {
+      const label = i / 5
+      const xOffset = label >= 10 ? 6 : 3
+      ticks.push(
+        <text key={`n${i}`} x={x - xOffset} y={h - 27} fontSize="10"
+          fontFamily="'Courier New', monospace" fontWeight="bold" fill="#333">{label}</text>
+      )
+    }
   }
+  return ticks
+}
+
+function TapeMeasure() {
+  const h = 40
+  const dTotal = 80, dSpacing = 20, dW = dTotal * dSpacing
+  // Mobile: 20 ticks, viewBox 400 wide → with meet scaling to 390px, major ticks land at 97.5px each (matching 4 nav buttons)
+  const mTotal = 20, mSpacing = 20, mW = mTotal * mSpacing
   return (
     <div className="tape" aria-hidden="true">
-      <svg width="100%" height={h} viewBox={`0 0 ${w} ${h}`} preserveAspectRatio="xMidYMid slice">
-        <rect width={w} height={2} fill="#222" />
-        {ticks}
+      <svg className="tape-desktop" width="100%" height={h} viewBox={`0 0 ${dW} ${h}`} preserveAspectRatio="xMidYMid slice">
+        <rect width={dW} height={2} fill="#222" />
+        {makeTicks(dTotal, dSpacing, h)}
+      </svg>
+      <svg className="tape-mobile" width="100%" height={h} viewBox={`0 0 ${mW} ${h}`} preserveAspectRatio="xMinYMid meet">
+        <rect width={mW} height={2} fill="#222" />
+        {makeTicks(mTotal, mSpacing, h)}
       </svg>
     </div>
   )
@@ -40,7 +55,7 @@ function Home() {
     <div className="home-layout">
       <div className="home-text">
         <p className="home-lead">
-          Family-owned handyman services for your home or business.
+          Handyman services for your home or business.
           Serving the South Metro Atlanta Crescent for over six years.
         </p>
         <p>
@@ -81,13 +96,14 @@ function About() {
       <h2>About Us</h2>
       <p>
         Donald Kuhn, owner and operator of Kuhn &amp; Son Home Improvements LLC,
-        has been serving the South Metro Atlanta Crescent &mdash; based in Peachtree City &mdash;
-        for over six years. We have completed more than 1,000 individual jobs for
+        has been serving the South Metro Atlanta Crescent for over six years.
+        We have completed more than 1,000 individual jobs for
         residential and commercial customers throughout the area.
       </p>
       <p>
-        Donald holds an FAA Certified A&amp;P Technician credential. The same
-        attention to detail required in aviation maintenance goes into every job we take on.
+        Before starting Kuhn &amp; Son, Donald spent over 31 years as an FAA Certified
+        A&amp;P aircraft mechanic for Delta Air Lines. That same precision and
+        attention to detail goes into every job.
       </p>
       <p>
         Licensed, fully insured, and ready to help. Whether it is a quick repair or

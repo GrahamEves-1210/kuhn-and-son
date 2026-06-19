@@ -83,6 +83,8 @@ body {
   flex-shrink: 0;
 }
 
+.tape-mobile { display: none; }
+
 /* ── Content ── */
 .content {
   flex: 1;
@@ -287,6 +289,9 @@ hr {
     border-bottom: none;
     margin-top: -1px;
   }
+
+  .tape-desktop { display: none; }
+  .tape-mobile { display: block; }
 
   .home-photo {
     grid-row: 1;
