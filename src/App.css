@@ -1,0 +1,337 @@
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  line-height: 1.75;
+  color: #111;
+  background: #fff;
+  margin: 0;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ── */
+.header {
+  background: #1b2f52;
+  color: #fff;
+  text-align: center;
+  padding: 1.2rem 1rem 1rem;
+  border-bottom: 4px solid #F5C430;
+}
+
+.header h1 {
+  font-size: 1.7rem;
+  color: #F5C430;
+  margin: 0 0 0.3rem;
+  line-height: 1.2;
+}
+
+.tagline {
+  font-size: 0.95rem;
+  color: #bcc8d8;
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.04em;
+}
+
+.header-info {
+  font-size: 0.78rem;
+  color: #8aa0ba;
+  margin: 0;
+  font-family: Verdana, Geneva, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.header-info a {
+  color: #F5C430;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header-info a:hover { text-decoration: underline; }
+
+/* ── Nav ── */
+.nav {
+  background: #243d66;
+  text-align: center;
+  border-bottom: 2px solid #F5C430;
+  flex-shrink: 0;
+}
+
+.nav a {
+  display: inline-block;
+  color: #ccd8e8;
+  text-decoration: none;
+  font-size: 0.98rem;
+  padding: 0.65rem 1.6rem;
+  border-right: 1px solid #1b2f52;
+}
+
+.nav a:first-child { border-left: 1px solid #1b2f52; }
+.nav a:hover { background: #1b2f52; color: #F5C430; }
+.nav a.active { background: #1b2f52; color: #F5C430; font-weight: bold; }
+
+/* ── Tape ── */
+.tape {
+  border-top: 2px solid #222;
+  border-bottom: 2px solid #222;
+  background: #F5C430;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+/* ── Content ── */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.12em;
+}
+
+/* ── Home page ── */
+.home-layout {
+  display: grid;
+  grid-template-columns: 1fr 45%;
+  flex: 1;
+  min-height: 0;
+}
+
+.home-text {
+  padding: 3rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #fff;
+  line-height: 2.1;
+  font-size: calc(1em + 3px);
+}
+
+.home-lead {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #1b2f52;
+  margin: 0 0 1.2rem;
+  border-left: 4px solid #F5C430;
+  padding-left: 0.9rem;
+  line-height: 1.5;
+}
+
+.home-text p { margin: 0 0 0.9rem; color: #222; }
+
+.home-cta {
+  font-size: calc(1.1rem + 3px) !important;
+  font-weight: bold;
+  margin-top: 0.4rem !important;
+}
+
+.home-cta a {
+  color: #1b2f52;
+  font-family: 'Courier New', monospace;
+  font-size: calc(1.25rem + 3px);
+  text-decoration: none;
+}
+
+.home-cta a:hover { text-decoration: underline; }
+
+.home-cta-sub a {
+  color: #666;
+  font-size: calc(0.95rem + 3px);
+  text-decoration: none;
+}
+
+.home-cta-sub a:hover { text-decoration: underline; }
+
+.home-photo {
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(6% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.home-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: sepia(0.15) contrast(1.05) brightness(1.02);
+}
+
+/* ── Inner pages ── */
+.inner {
+  max-width: 640px;
+  padding: 3rem 2rem;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.inner h2 {
+  font-size: 1.35rem;
+  color: #1b2f52;
+  margin: 0 0 0.9rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid #F5C430;
+}
+
+.inner p { margin: 0 0 0.85rem; color: #222; }
+.inner p:last-child { margin-bottom: 0; }
+
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 1.2rem 0;
+}
+
+/* ── Services ── */
+.services-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 1.2rem;
+  columns: 2;
+  column-gap: 2.5rem;
+}
+
+.services-list li {
+  padding: 0.5rem 0 0.5rem 1.4rem;
+  position: relative;
+  border-bottom: 1px solid #eee;
+  font-size: 1.05rem;
+  break-inside: avoid;
+}
+
+.services-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #F5C430;
+  border: 1.5px solid #b8900a;
+}
+
+.note { font-size: 0.95rem; color: #666; font-style: italic; }
+
+/* ── Contact ── */
+.contact { text-align: center; }
+.contact .inner { max-width: 100%; }
+
+.big-phone { margin: 1rem 0 0.4rem !important; }
+
+.big-phone a {
+  font-family: 'Courier New', monospace;
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #1b2f52;
+  text-decoration: none;
+}
+
+.big-phone a:hover { text-decoration: underline; }
+
+.contact a { color: #1b2f52; }
+
+.contact-detail {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.2rem 0 !important;
+}
+
+/* ── Footer ── */
+.footer {
+  background: #1b2f52;
+  color: #7a90aa;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.8rem;
+  font-family: 'Courier New', monospace;
+  line-height: 1.8;
+  flex-shrink: 0;
+}
+
+.footer p { margin: 0; }
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+
+  .header h1 { font-size: clamp(0.82rem, 4.1vw, 1.2rem); white-space: nowrap; }
+  .header-info { font-size: 0.68rem; letter-spacing: 0.06em; }
+
+  .nav {
+    display: flex;
+    border-bottom-color: #243d66;
+  }
+
+  .nav a {
+    flex: 1;
+    text-align: center;
+    padding: calc(0.65rem + 1px) 0;
+    font-size: 0.85rem;
+    border-right: 1px solid #1b2f52;
+  }
+
+  .nav a:last-child { border-right: none; }
+
+  /* Stack vertically, photo first */
+  .home-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: 260px 1fr;
+  }
+
+  .tape {
+    border-bottom: none;
+    margin-top: -1px;
+  }
+
+  .home-photo {
+    grid-row: 1;
+    clip-path: none;
+    background: #fff;
+    border-bottom: 4px solid #fff;
+  }
+
+  .home-photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 62%, #fff 93%);
+    z-index: 1;
+  }
+
+  .home-text {
+    grid-row: 2;
+    padding: 0.8rem 1.4rem 1.8rem;
+    justify-content: flex-start;
+    font-size: 1em;
+    line-height: 1.75;
+    margin-top: -1px;
+    background: #fff;
+  }
+
+  .home-lead {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .home-text p {
+    font-size: 0.96rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .content { font-size: 1rem; }
+
+  .home-cta { font-size: 1.135rem !important; }
+  .home-cta a { font-size: 1.335rem; }
+  .home-cta-sub a { font-size: 0.9rem; }
+
+  .inner { padding: 1.4rem 1.2rem; }
+
+  .services-list { columns: 1; }
+
+  .big-phone a { font-size: 1.5rem; }
+}
