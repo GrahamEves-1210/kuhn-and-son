@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import './App.css'
 
 const SERVICES = [
@@ -59,7 +60,7 @@ function Home() {
           Serving the South Metro Atlanta Crescent for over six years.
         </p>
         <p>
-          Donald Kuhn handles everything from electrical and plumbing
+          Don Kuhn handles everything from electrical and plumbing
           to carpentry, painting, rot repairs, and general maintenance.
           Licensed, fully insured, and based right here in Peachtree City.
         </p>
@@ -71,7 +72,7 @@ function Home() {
         </p>
       </div>
       <div className="home-photo">
-        <img src="/IMG_4546.JPG" alt="Donald Kuhn working on a home exterior" />
+        <img src="/IMG_4546.JPG" alt="Don Kuhn working on a home exterior" />
       </div>
     </div>
   )
@@ -95,13 +96,13 @@ function About() {
     <div className="inner">
       <h2>About Us</h2>
       <p>
-        Donald Kuhn, owner and operator of Kuhn &amp; Son Home Improvements LLC,
+        Don Kuhn, owner and operator of Kuhn &amp; Son Home Improvements LLC,
         has been serving the South Metro Atlanta Crescent for over six years.
         We have completed more than 1,000 individual jobs for
         residential and commercial customers throughout the area.
       </p>
       <p>
-        Before starting Kuhn &amp; Son, Donald spent over 31 years as an FAA Certified
+        Before starting Kuhn &amp; Son, Don spent over 31 years as an FAA Certified
         A&amp;P aircraft mechanic for Delta Air Lines. That same precision and
         attention to detail goes into every job.
       </p>
@@ -161,6 +162,7 @@ export default function App() {
         <Page />
       </div>
 
+      <Analytics />
       <div className="footer">
         <p>&copy; {new Date().getFullYear()} Kuhn &amp; Son Home Improvements, LLC <span className="footer-dot">&nbsp;&middot;&nbsp;</span>Licensed &amp; Fully Insured</p>
         <p>Serving the South Metro Atlanta Crescent <span className="footer-dot">&nbsp;&middot;&nbsp;</span>Peachtree City, GA</p>
